@@ -17,8 +17,8 @@ local function get_lsp_diagnostics()
 			info = info + 1
 		end
 	end
-	return string.format("%s %d %s%d %s%d", "%#DiagnosticSignError#", errors,
-		"%#DiagnosticSignWarn#", warnings, "%#DiagnosticSignInfo#", info)
+	return string.format("%s %d %s%d %s%d ", "%#LspDiagnosticsDefaultError#", errors,
+		"%#LspDiagnosticsDefaultError#", warnings, "%#LspDiagnosticsDefaultInformation#", info)
 end
 local function statusline()
 	local filename = '%<%1* %.35F %*'
@@ -26,11 +26,11 @@ local function statusline()
 		filename = '%<%2* %.35F %*'
 	end
 	return table.concat({
-		-- " %.35F ",                              -- filename cut to 35 chars
 		filename,
 		"%R %S",                               -- modified, readonly, show
 		"%=",                                  --align_right
 		get_lsp_diagnostics(),
+		"%#statusLine#",
 		" [%-3b,0x%-3B]",                      -- current Char
 		" %Y",                                 --file type
 		" %{&fileencoding?&fileencoding:&encoding}", --file encoding
@@ -44,8 +44,6 @@ end
 
 function M.setup()
 	_G.SMstatusline = statusline
-	vim.api.nvim_set_hl(0, 'User1', { bg = '#6AC935', fg = 'black' })
-	vim.api.nvim_set_hl(0, 'User2', { bg = '#8F0000', fg = 'white' })
 	local augroup = vim.api.nvim_create_augroup('microline', { clear = true })
 	local autocmd = vim.api.nvim_create_autocmd
 	autocmd({ "BufEnter", "BufWinEnter", "DiagnosticChanged" }, {

@@ -21,7 +21,6 @@ local dark_colorscheme = {
     LspDiagnosticsDefaultWarning = {fg="#FFA500"},
     LspDiagnosticsDefaultInformation = {fg="#1E90FF"},
     LspDiagnosticsDefaultHint = {fg="#00FF00"},
-	
     MatchParen = {fg="#FFD700", bg="#44475A", bold=true},
     IncSearch = {fg="#1E1E1E", bg="#FFD700"},
     Folded = {fg="#ABB2BF", bg="#2C323C"},
@@ -77,7 +76,6 @@ local dark_colorscheme = {
     ["@type.builtin"] = {fg="#4EC9B0"},
     ["@variable"] = {fg="#9CDCFE"},
     ["@variable.builtin"] = {fg="#9CDCFE"},
-    -- Add more Tree-sitter highlights as needed
 }
 
 return dark_colorscheme
