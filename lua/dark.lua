@@ -14,6 +14,7 @@ local dark_colorscheme = {
     CursorLine = {bg="#2B2B2B"},
     Pmenu = {fg="#DCDCDC", bg="#2B2B2B"},
     PmenuSel = {bg="#569CD6", fg="#1E1E1E"},
+    StatusLine= {bg="#DCDCDC", fg="#1E1E1E"},
     Search = {bg="#D7BA7D", fg="#1E1E1E"},
     Error = {fg="#FF0000", bg="#1E1E1E"},
     LspDiagnosticsDefaultError = {fg="#FF0000"},
