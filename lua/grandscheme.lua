@@ -14,7 +14,7 @@ function M.setup(opts)
 	opts = opts or {}
 	if not opts.style then
 		opts.style = os.getenv("VIMGSCOLOR") or vim.o.background
-		print('gscheme: VIMGSCOLOR=', os.getenv("VIMGSCOLOR"), "vim.bg=", vim.o.background)
+		-- print('gscheme: VIMGSCOLOR=', os.getenv("VIMGSCOLOR"), "vim.bg=", vim.o.background)
 		if not opts.style or opts.style == "" then
 				opts.style = 'dark'
 		end
