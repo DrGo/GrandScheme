@@ -18,7 +18,7 @@ local light_colorscheme = {
     Search = {bg="#D7BA7D", fg="#1E1E1E"},
     Error = {fg="#E45649", bg="#FAFAFA"},
     LspDiagnosticsDefaultError = {fg="#E45649", bg='#383A42'},
-    LspDiagnosticsDefaultWarning = {fg="#986801", bg='#383A42'},
+    LspDiagnosticsDefaultWarning = {fg="#dddd00", bg='#383A42'},
     LspDiagnosticsDefaultInformation = {fg="#4078F2", bg='#383A42'},
     LspDiagnosticsDefaultHint = {fg="#50A14F"},
 	MatchParen = {fg="#383A42", bg="#E2E4E8", bold=true},

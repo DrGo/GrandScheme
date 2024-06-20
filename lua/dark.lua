@@ -32,6 +32,8 @@ local dark_colorscheme = {
     Whitespace = {fg="#3B4048"},
     Substitute = {fg="#1E1E1E", bg="#C586C0"},
     TODO = {fg="#FFD700", bold=true, italic=true},
+	User1= {bg = '#6AC935', fg = 'black' },
+	User2= {bg = '#8F0000', fg = 'white' },
     -- Tree-sitter Highlighting
     ["@annotation"] = {fg="#569CD6"},
     ["@attribute"] = {fg="#CE9178"},

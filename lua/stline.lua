@@ -18,7 +18,7 @@ local function get_lsp_diagnostics()
 		end
 	end
 	return string.format("%s %d %s%d %s%d ", "%#LspDiagnosticsDefaultError#", errors,
-		"%#LspDiagnosticsDefaultError#", warnings, "%#LspDiagnosticsDefaultInformation#", info)
+		"%#LspDiagnosticsDefaultWarning#", warnings, "%#LspDiagnosticsDefaultInformation#", info)
 end
 local function statusline()
 	local filename = '%<%1* %.35F %*'
