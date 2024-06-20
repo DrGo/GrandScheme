@@ -16,7 +16,7 @@ function M.setup(opts)
 		opts.style = os.getenv("VIMGSCOLOR") or vim.o.background
 		-- print('gscheme: VIMGSCOLOR=', os.getenv("VIMGSCOLOR"), "vim.bg=", vim.o.background)
 		if not opts.style or opts.style == "" then
-				opts.style = 'dark'
+			opts.style = 'dark'
 		end
 	end
 	if not opts.scheme then opts.scheme = mod_load(opts.style) end
@@ -58,5 +58,16 @@ end, {
 		return { "dark", "light" }
 	end,
 })
+
+vim.api.nvim_create_user_command("LspHLDisable", function()
+	for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+		vim.api.nvim_set_hl(0, group, {})
+	end
+end, {
+	nargs = '*',
+	complete = nil,
+})
+
+
 
 return M
