@@ -1,7 +1,7 @@
 local M = {}
 local function get_lsp_diagnostics()
 	-- get clients attached to this buffer
-	if #vim.lsp.buf_get_clients() == 0 then
+	if #vim.lsp.get_clients() == 0 then
 		return "No LSP"
 	end
 	local diagnostics = vim.diagnostic.get(0)
