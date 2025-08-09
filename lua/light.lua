@@ -32,11 +32,10 @@ local colors = {
 	diff_delete_bg      = '#F8D6D9', -- DiffDelete
 
 	-- UI background variants
-	bg_float            = '#FBFBFB', -- NormalFloat
-	border_float        = '#CCCCCC', -- FloatBorder
 	bg_pmenu            = '#F8F8F8', -- Pmenu
 	bg_cursor           = '#E2E4E8', -- CursorLine/CursorColumn
-
+	bg_float            = '#F0F0F0', -- CHANGE THIS from #FBFBFB
+	border_float        = '#CCCCCC', -- FloatBorder
 	-- Plugin specific
 	fzf_lua_help_fg     = '#6C9A00', -- fzf-lua help line override
 

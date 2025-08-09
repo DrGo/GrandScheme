@@ -23,6 +23,7 @@ local colors = {
   selection  = '#3E4451',
   spell_bad  = '#AC3000',
   nontext    = '#ABB2BF',
+  bg_float   = '#252526',
 }
 
 -- Highlight table returned for loader
@@ -49,6 +50,8 @@ local scheme = {
   EndOfBuffer  = { fg = colors.bg },
   Substitute   = { fg = colors.bg, bg = colors.purple },
   TODO         = { fg = colors.yellow, bold = true, italic = true },
+  NormalFloat  = { bg = colors.bg_float },
+  FloatBorder  = { fg = colors.nontext },
 
   -- Syntax (legacy)
   Comment    = { fg = colors.comment },
