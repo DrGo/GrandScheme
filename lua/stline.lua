@@ -17,9 +17,11 @@ local function get_lsp_diagnostics()
 			info = info + 1
 		end
 	end
-	return string.format("%s %d %s%d %s%d ", "%#LspDiagnosticsDefaultError#", errors,
-		"%#LspDiagnosticsDefaultWarning#", warnings, "%#LspDiagnosticsDefaultInformation#", info)
+	-- Corrected highlight groups
+	return string.format("%s %d %s%d %s%d ", "%#DiagnosticError#", errors,
+		"%#DiagnosticWarn#", warnings, "%#DiagnosticInfo#", info)
 end
+
 local function statusline()
 	local filename = '%<%1* %.35F %*'
 	if vim.bo.modified then
@@ -30,7 +32,7 @@ local function statusline()
 		"%R %S",                               -- modified, readonly, show
 		"%=",                                  --align_right
 		get_lsp_diagnostics(),
-		"%#statusLine#",
+		"%#StatusLine#",                       -- Corrected highlight group
 		" [%-3b,0x%-3B]",                      -- current Char
 		" %Y",                                 --file type
 		" %{&fileencoding?&fileencoding:&encoding}", --file encoding
@@ -40,7 +42,6 @@ local function statusline()
 	}
 	)
 end
-
 
 function M.setup()
 	_G.SMstatusline = statusline

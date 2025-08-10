@@ -199,13 +199,9 @@ local scheme = {
 	-- Lua
 	['@variable.builtin.lua']  = { fg = colors.purple, bold = true }, -- _G, etc.
 
-	-- Plugin-Specific Highlights
-	FzfLuaHelp                 = { fg = colors.fzf_lua_help_fg },
-
-	  -- Statusline specials
-  User1 = { bg = '#6AC935', fg = 'black' },
-  User2 = { bg = '#8F0000', fg = 'white' },
-
+	-- Statusline specials
+	User1                      = { bg = '#6AC935', fg = 'black' },
+	User2                      = { bg = '#8F0000', fg = 'white' },
 }
 
 return scheme

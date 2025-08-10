@@ -24,6 +24,11 @@ local colors = {
   spell_bad  = '#AC3000',
   nontext    = '#ABB2BF',
   bg_float   = '#252526',
+
+  -- Added for Diff View
+  diff_add_bg    = '#314D38',
+  diff_change_bg = '#373F51',
+  diff_delete_bg = '#543436',
 }
 
 -- Highlight table returned for loader
@@ -70,18 +75,28 @@ local scheme = {
   Search    = { fg = colors.bg, bg = colors.operator },
   IncSearch = { fg = colors.bg, bg = colors.yellow },
 
+  -- Diff View
+  DiffAdd      = { bg = colors.diff_add_bg },
+  DiffChange   = { bg = colors.diff_change_bg },
+  DiffDelete   = { bg = colors.diff_delete_bg },
+
   -- Diagnostics (LSP)
   DiagnosticError = { fg = colors.error },
   DiagnosticWarn  = { fg = colors.warning },
   DiagnosticInfo  = { fg = colors.info },
   DiagnosticHint  = { fg = colors.hint },
-  LspDiagnosticsDefaultError     = { fg = colors.error },
-  LspDiagnosticsDefaultWarning   = { fg = colors.warning },
-  LspDiagnosticsDefaultInformation = { fg = colors.info },
-  LspDiagnosticsDefaultHint      = { fg = colors.hint },
+  -- LSP References & CodeLens
+  LspReferenceText           = { bg = colors.selection },
+  LspReferenceRead           = { bg = colors.selection },
+  LspReferenceWrite          = { bg = colors.selection },
+  LspCodeLens                = { fg = colors.comment, italic = true },
+
 
   -- Spell Checking
   SpellBad   = { fg = colors.string, undercurl = true, sp = colors.spell_bad },
+  SpellCap   = { undercurl = true, sp = colors.warning },
+  SpellLocal = { undercurl = true, sp = colors.info },
+  SpellRare  = { undercurl = true, sp = colors.purple },
 
   -- Statusline specials
   User1 = { bg = '#6AC935', fg = 'black' },
@@ -129,6 +144,13 @@ local scheme = {
   ['@tag']               = { fg = colors.blue },
   ['@tag.delimiter']     = { fg = colors.operator },
   ['@text']              = { fg = colors.fg },
+  -- Text & Markup
+  ['@text.title']        = { fg = colors.blue, bold = true },
+  ['@text.strong']       = { bold = true },
+  ['@text.emphasis']     = { italic = true },
+  ['@text.literal']      = { bg = colors.bg_alt },
+  ['@text.uri']          = { fg = colors.blue, underline = true },
+  -- End Text & Markup
   ['@type']              = { fg = colors.type },
   ['@type.builtin']      = { fg = colors.type },
   ['@variable']          = { fg = colors.identifier },
@@ -136,4 +158,3 @@ local scheme = {
 }
 
 return scheme
-
