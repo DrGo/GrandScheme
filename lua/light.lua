@@ -21,6 +21,7 @@ local colors = {
 	comment_alt         = '#7E7E86', -- Darker comments for better small-text contrast
 	punctuation         = '#A0A0A0', -- Neutral gray for punctuation/delimiters
 	diag_error_alt      = '#C94C4C', -- Softer error undercurl on light bg
+	diag_error_lighter  = '#FF3333', -- Softer error on black bg
 
 	-- Tree-sitter specific overrides
 	ts_constant         = '#9A8100', -- @constant
@@ -92,7 +93,7 @@ local scheme = {
 	-----------------------------------------------------------------------------
 	-- Diagnostics (LSP)
 	-----------------------------------------------------------------------------
-	DiagnosticError            = { fg = colors.error_red },
+	DiagnosticErr            = { fg = colors.diag_error_lighter },
 	DiagnosticWarn             = { fg = colors.orange },
 	DiagnosticInfo             = { fg = colors.blue },
 	DiagnosticHint             = { fg = colors.green },

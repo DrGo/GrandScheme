@@ -17,8 +17,7 @@ local function get_lsp_diagnostics()
 			info = info + 1
 		end
 	end
-	-- Corrected highlight groups
-	return string.format("%s %d %s%d %s%d ", "%#DiagnosticError#", errors,
+	return string.format("%s%d %s%d %s%d ", "%#DiagnosticErr#", errors,
 		"%#DiagnosticWarn#", warnings, "%#DiagnosticInfo#", info)
 end
 
