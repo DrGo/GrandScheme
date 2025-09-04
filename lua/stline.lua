@@ -32,10 +32,10 @@ local function statusline()
 		"%=",                                  --align_right
 		get_lsp_diagnostics(),
 		"%#StatusLine#",                       -- Corrected highlight group
-		" [%-3b,0x%-3B]",                      -- current Char
+		" [%{mode()}]",                        -- current mode
 		" %Y",                                 --file type
 		" %{&fileencoding?&fileencoding:&encoding}", --file encoding
-		" %{&ff} ",                            --file format
+		" %{&readonly?'[RO]':''} ",            --readonly flag
 		"%#PmenuSel#",
 		" %3l/%L",                             -- line/total	
 	}
