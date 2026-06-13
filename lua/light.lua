@@ -90,10 +90,9 @@ local scheme = {
 	Type                       = { fg = colors.type_yellow },
 	Special                    = { fg = colors.cyan },
 
-	-----------------------------------------------------------------------------
 	-- Diagnostics (LSP)
-	-----------------------------------------------------------------------------
-	DiagnosticErr            = { fg = colors.diag_error_lighter },
+	DiagnosticError            = { fg = colors.diag_error_lighter },
+	DiagnosticUnderlineError   = { sp = colors.error_red, undercurl = true },
 	DiagnosticWarn             = { fg = colors.orange },
 	DiagnosticInfo             = { fg = colors.blue },
 	DiagnosticHint             = { fg = colors.green },
@@ -145,14 +144,14 @@ local scheme = {
 	['@function.builtin']      = { fg = colors.cyan, bold = true },
 	['@function.call']         = { fg = colors.blue },
 	['@function.macro']        = { fg = colors.cyan },
-	['@method']                = { fg = colors.blue },
-	['@method.call']           = { fg = colors.blue },
+	['@function.method']       = { fg = colors.blue },
+	['@function.method.call']  = { fg = colors.blue },
 	['@constructor']           = { fg = colors.blue, bold = true },
 
 	-- Variables & Parameters
 	['@variable']              = { fg = colors.fg },
 	['@variable.builtin']      = { fg = colors.purple, bold = true },
-	['@parameter']             = { fg = colors.fg, italic = true },
+	['@variable.parameter']    = { fg = colors.fg, italic = true },
 
 	-- Types & Keywords
 	['@type']                  = { fg = colors.type_yellow },
@@ -190,6 +189,11 @@ local scheme = {
 	['@text.emphasis']         = { italic = true },
 	['@text.literal']          = { bg = colors.bg_cursor },
 	['@text.uri']              = { fg = colors.cyan, underline = true },
+	['@markup.heading']        = { fg = colors.blue, bold = true },
+	['@markup.strong']         = { bold = true },
+	['@markup.italic']         = { italic = true },
+	['@markup.raw']            = { bg = colors.bg_cursor },
+	['@markup.link.url']       = { fg = colors.cyan, underline = true },
 
 	-- Error Handling
 	['@error']                 = { fg = colors.error_red, bold = true },
