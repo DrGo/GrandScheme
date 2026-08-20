@@ -1,6 +1,7 @@
 -- light.lua: Grok Day colorscheme for grandscheme
--- Palette and token mapping from GrokDay + grok-day.tmTheme
--- (xai-org/grok-build). Returns highlight groups for the loader.
+-- Swatches from GrokDay (xai-org/grok-build). Token roles match dark:
+--   keywords blue, functions magenta, variables cyan, types teal,
+--   strings orange, operators gold, numbers green.
 
 -- Grok Day palette
 local colors = {
@@ -30,8 +31,8 @@ local colors = {
 	red            = '#CD3048',
 	red1           = '#AF2323',
 
-	-- Operators / punctuation (tmTheme)
-	operator       = '#5580A8',
+	-- Operators (warm, like dark gold)
+	operator       = '#A27612',
 	punctuation    = '#4A72B0',
 
 	-- UI surfaces
@@ -93,31 +94,31 @@ local scheme = {
 	-- Legacy Syntax Highlighting
 	-----------------------------------------------------------------------------
 	Comment                    = { fg = colors.comment, italic = true },
-	Constant                   = { fg = colors.orange },
-	String                     = { fg = colors.green },
-	Character                  = { fg = colors.green },
-	Number                     = { fg = colors.orange },
-	Boolean                    = { fg = colors.orange },
-	Float                      = { fg = colors.orange },
-	Identifier                 = { fg = colors.fg },
-	Function                   = { fg = colors.blue },
-	Statement                  = { fg = colors.magenta },
-	Conditional                = { fg = colors.magenta },
-	Repeat                     = { fg = colors.magenta },
-	Label                      = { fg = colors.blue },
-	Keyword                    = { fg = colors.magenta },
-	Exception                  = { fg = colors.magenta },
+	Constant                   = { fg = colors.green },
+	String                     = { fg = colors.orange },
+	Character                  = { fg = colors.orange },
+	Number                     = { fg = colors.green },
+	Boolean                    = { fg = colors.blue },
+	Float                      = { fg = colors.green },
+	Identifier                 = { fg = colors.cyan },
+	Function                   = { fg = colors.magenta },
+	Statement                  = { fg = colors.blue },
+	Conditional                = { fg = colors.blue },
+	Repeat                     = { fg = colors.blue },
+	Label                      = { fg = colors.cyan },
+	Keyword                    = { fg = colors.blue },
+	Exception                  = { fg = colors.blue },
 	Operator                   = { fg = colors.operator },
-	PreProc                    = { fg = colors.green1 },
-	Include                    = { fg = colors.green1 },
-	Define                     = { fg = colors.green1 },
-	Macro                      = { fg = colors.cyan },
+	PreProc                    = { fg = colors.purple },
+	Include                    = { fg = colors.purple },
+	Define                     = { fg = colors.purple },
+	Macro                      = { fg = colors.purple },
 	Type                       = { fg = colors.blue1 },
 	StorageClass               = { fg = colors.purple },
 	Structure                  = { fg = colors.blue1 },
 	Typedef                    = { fg = colors.blue1 },
-	Special                    = { fg = colors.blue },
-	SpecialChar                = { fg = colors.magenta },
+	Special                    = { fg = colors.yellow },
+	SpecialChar                = { fg = colors.operator },
 	Delimiter                  = { fg = colors.fg_alt },
 
 	-- Diagnostics (LSP)
@@ -156,91 +157,91 @@ local scheme = {
 	['@comment.documentation'] = { fg = colors.comment_doc, italic = true },
 
 	-- Constants & Literals
-	['@constant']              = { fg = colors.orange },
-	['@constant.builtin']      = { fg = colors.orange },
-	['@constant.macro']        = { fg = colors.cyan },
-	['@boolean']               = { fg = colors.orange },
-	['@number']                = { fg = colors.orange },
-	['@float']                 = { fg = colors.orange },
-	['@character']             = { fg = colors.green },
+	['@constant']              = { fg = colors.green },
+	['@constant.builtin']      = { fg = colors.blue },
+	['@constant.macro']        = { fg = colors.purple },
+	['@boolean']               = { fg = colors.blue },
+	['@number']                = { fg = colors.green },
+	['@float']                 = { fg = colors.green },
+	['@character']             = { fg = colors.orange },
 
 	-- Strings
-	['@string']                = { fg = colors.green },
-	['@string.escape']         = { fg = colors.magenta },
-	['@string.regex']          = { fg = colors.green1 },
-	['@string.regexp']         = { fg = colors.green1 },
+	['@string']                = { fg = colors.orange },
+	['@string.escape']         = { fg = colors.operator },
+	['@string.regex']          = { fg = colors.operator },
+	['@string.regexp']         = { fg = colors.operator },
 
 	-- Functions & Methods
-	['@function']              = { fg = colors.blue },
+	['@function']              = { fg = colors.magenta },
 	['@function.builtin']      = { fg = colors.blue1 },
-	['@function.call']         = { fg = colors.blue },
-	['@function.macro']        = { fg = colors.cyan },
-	['@function.method']       = { fg = colors.blue },
-	['@function.method.call']  = { fg = colors.blue },
-	['@constructor']           = { fg = colors.magenta },
+	['@function.call']         = { fg = colors.magenta },
+	['@function.macro']        = { fg = colors.purple },
+	['@function.method']       = { fg = colors.magenta },
+	['@function.method.call']  = { fg = colors.magenta },
+	['@constructor']           = { fg = colors.blue1 },
 
 	-- Variables & Parameters
-	['@variable']              = { fg = colors.fg },
-	['@variable.builtin']      = { fg = colors.red },
-	['@variable.parameter']    = { fg = colors.yellow },
-	['@variable.parameter.builtin'] = { fg = colors.yellow },
-	['@variable.member']       = { fg = colors.green1 },
+	['@variable']              = { fg = colors.cyan },
+	['@variable.builtin']      = { fg = colors.blue },
+	['@variable.parameter']    = { fg = colors.cyan },
+	['@variable.parameter.builtin'] = { fg = colors.cyan },
+	['@variable.member']       = { fg = colors.cyan },
 
 	-- Types & Keywords
 	['@type']                  = { fg = colors.blue1 },
 	['@type.builtin']          = { fg = colors.blue1 },
 	['@type.definition']       = { fg = colors.blue1 },
-	['@keyword']               = { fg = colors.magenta },
-	['@keyword.function']      = { fg = colors.magenta },
-	['@keyword.return']        = { fg = colors.magenta },
-	['@keyword.conditional']   = { fg = colors.magenta },
-	['@keyword.conditional.ternary'] = { fg = colors.magenta },
-	['@keyword.repeat']        = { fg = colors.magenta },
-	['@keyword.exception']     = { fg = colors.magenta },
-	['@keyword.import']        = { fg = colors.magenta },
-	['@keyword.coroutine']     = { fg = colors.magenta },
-	['@keyword.type']          = { fg = colors.magenta },
-	['@keyword.operator']      = { fg = colors.magenta },
+	['@keyword']               = { fg = colors.blue },
+	['@keyword.function']      = { fg = colors.blue },
+	['@keyword.return']        = { fg = colors.blue },
+	['@keyword.conditional']   = { fg = colors.blue },
+	['@keyword.conditional.ternary'] = { fg = colors.blue },
+	['@keyword.repeat']        = { fg = colors.blue },
+	['@keyword.exception']     = { fg = colors.blue },
+	['@keyword.import']        = { fg = colors.blue },
+	['@keyword.coroutine']     = { fg = colors.blue },
+	['@keyword.type']          = { fg = colors.blue },
+	['@keyword.operator']      = { fg = colors.blue },
 	['@keyword.modifier']      = { fg = colors.purple },
-	['@keyword.directive']     = { fg = colors.green1 },
-	['@keyword.directive.define'] = { fg = colors.green1 },
-	['@conditional']           = { fg = colors.magenta },
-	['@repeat']                = { fg = colors.magenta },
-	['@exception']             = { fg = colors.magenta },
-	['@include']               = { fg = colors.magenta },
+	['@keyword.directive']     = { fg = colors.purple },
+	['@keyword.directive.define'] = { fg = colors.purple },
+	['@conditional']           = { fg = colors.blue },
+	['@repeat']                = { fg = colors.blue },
+	['@exception']             = { fg = colors.blue },
+	['@include']               = { fg = colors.blue },
 
 	-- Structure & Organization
-	['@namespace']             = { fg = colors.cyan },
-	['@module']                = { fg = colors.cyan },
-	['@module.builtin']        = { fg = colors.cyan },
-	['@field']                 = { fg = colors.green1 },
-	['@property']              = { fg = colors.green1 },
-	['@attribute']             = { fg = colors.cyan },
-	['@annotation']            = { fg = colors.cyan },
-	['@label']                 = { fg = colors.blue },
+	['@namespace']             = { fg = colors.blue1 },
+	['@module']                = { fg = colors.blue1 },
+	['@module.builtin']        = { fg = colors.blue1 },
+	['@field']                 = { fg = colors.cyan },
+	['@property']              = { fg = colors.cyan },
+	['@attribute']             = { fg = colors.blue1 },
+	['@annotation']            = { fg = colors.blue },
+	['@label']                 = { fg = colors.cyan },
 
 	-- Punctuation & Operators
 	['@operator']              = { fg = colors.operator },
 	['@punctuation.bracket']   = { fg = colors.fg_alt },
 	['@punctuation.delimiter'] = { fg = colors.fg_alt },
-	['@punctuation.special']   = { fg = colors.cyan },
+	['@punctuation.special']   = { fg = colors.operator },
 
 	-- Tags & Markup
 	['@tag']                   = { fg = colors.red },
 	['@tag.delimiter']         = { fg = colors.dark5 },
-	['@symbol']                = { fg = colors.orange },
+	['@symbol']                = { fg = colors.green },
 
 	-- Text & Markup (Markdown, etc.)
 	['@text']                  = { fg = colors.fg },
 	['@text.title']            = { fg = colors.blue, bold = true },
 	['@text.strong']           = { bold = true },
 	['@text.emphasis']         = { italic = true },
-	['@text.literal']          = { fg = colors.green },
+	['@text.literal']          = { fg = colors.orange },
 	['@text.uri']              = { fg = colors.blue, underline = true },
 	['@markup.heading']        = { fg = colors.blue, bold = true },
 	['@markup.strong']         = { bold = true },
 	['@markup.italic']         = { italic = true },
-	['@markup.raw']            = { fg = colors.green },
+	['@markup.raw']            = { fg = colors.orange },
 	['@markup.link.url']       = { fg = colors.blue, underline = true },
 
 	-- Error Handling
@@ -250,32 +251,32 @@ local scheme = {
 	-- Language-Specific Overrides
 	-----------------------------------------------------------------------------
 	-- Lua: stdlib vs user code; table braces stay punctuation, not constructors
-	['@variable.builtin.lua']  = { fg = colors.red }, -- self
-	['@module.builtin.lua']    = { fg = colors.cyan }, -- _G, io, math, string
+	['@variable.builtin.lua']  = { fg = colors.blue }, -- self
+	['@module.builtin.lua']    = { fg = colors.blue1 }, -- _G, io, math, string
 	['@function.builtin.lua']  = { fg = colors.blue1 }, -- print, ipairs, require
 	['@constructor.lua']       = { fg = colors.fg_alt }, -- { }
-	['@keyword.operator.lua']  = { fg = colors.magenta }, -- and, or, not
-	['@attribute.lua']         = { fg = colors.cyan }, -- <const>, <close>
+	['@keyword.operator.lua']  = { fg = colors.blue }, -- and, or, not
+	['@attribute.lua']         = { fg = colors.blue1 }, -- <const>, <close>
 
-	-- Go: packages, builtins, composite-type keywords
-	['@module.go']             = { fg = colors.cyan },
+	-- Go: packages with types, builtins teal, keywords blue
+	['@module.go']             = { fg = colors.blue1 },
 	['@function.builtin.go']   = { fg = colors.blue1 }, -- make, append, len
 	['@type.builtin.go']       = { fg = colors.blue1 }, -- int, string, error
-	['@keyword.type.go']       = { fg = colors.magenta }, -- type, struct, interface
-	['@keyword.coroutine.go']  = { fg = colors.magenta }, -- go
-	['@constant.builtin.go']   = { fg = colors.orange }, -- nil, iota
+	['@keyword.type.go']       = { fg = colors.blue }, -- type, struct, interface
+	['@keyword.coroutine.go']  = { fg = colors.blue }, -- go
+	['@constant.builtin.go']   = { fg = colors.blue }, -- nil, iota
 
-	-- C: preprocessor and storage distinct from keywords
-	['@keyword.directive.c']   = { fg = colors.green1 },
-	['@keyword.directive.define.c'] = { fg = colors.green1 },
-	['@keyword.import.c']      = { fg = colors.green1 }, -- #include
+	-- C: preprocessor purple, storage purple, type keywords blue
+	['@keyword.directive.c']   = { fg = colors.purple },
+	['@keyword.directive.define.c'] = { fg = colors.purple },
+	['@keyword.import.c']      = { fg = colors.purple }, -- #include
 	['@keyword.modifier.c']    = { fg = colors.purple }, -- static, const, extern
-	['@keyword.operator.c']    = { fg = colors.magenta }, -- sizeof
-	['@keyword.type.c']        = { fg = colors.magenta }, -- struct, enum, union
-	['@constant.macro.c']      = { fg = colors.orange },
-	['@function.macro.c']      = { fg = colors.cyan },
+	['@keyword.operator.c']    = { fg = colors.blue }, -- sizeof
+	['@keyword.type.c']        = { fg = colors.blue }, -- struct, enum, union
+	['@constant.macro.c']      = { fg = colors.purple },
+	['@function.macro.c']      = { fg = colors.purple },
 	['@type.definition.c']     = { fg = colors.blue1 },
-	['@character.c']           = { fg = colors.green },
+	['@character.c']           = { fg = colors.orange },
 
 	-- LSP semantic tokens (gopls / clangd / lua_ls)
 	['@lsp.type.namespace']    = { link = '@module' },
