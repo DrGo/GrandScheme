@@ -113,10 +113,10 @@ local scheme = {
 	Include                    = { fg = colors.purple },
 	Define                     = { fg = colors.purple },
 	Macro                      = { fg = colors.purple },
-	Type                       = { fg = colors.blue1 },
+	Type                       = { fg = colors.teal },
 	StorageClass               = { fg = colors.purple },
-	Structure                  = { fg = colors.blue1 },
-	Typedef                    = { fg = colors.blue1 },
+	Structure                  = { fg = colors.teal },
+	Typedef                    = { fg = colors.teal },
 	Special                    = { fg = colors.yellow },
 	SpecialChar                = { fg = colors.operator },
 	Delimiter                  = { fg = colors.fg_alt },
@@ -188,9 +188,9 @@ local scheme = {
 	['@variable.member']       = { fg = colors.cyan },
 
 	-- Types & Keywords
-	['@type']                  = { fg = colors.blue1 },
-	['@type.builtin']          = { fg = colors.blue1 },
-	['@type.definition']       = { fg = colors.blue1 },
+	['@type']                  = { fg = colors.teal },
+	['@type.builtin']          = { fg = colors.teal },
+	['@type.definition']       = { fg = colors.teal },
 	['@keyword']               = { fg = colors.blue },
 	['@keyword.function']      = { fg = colors.blue },
 	['@keyword.return']        = { fg = colors.blue },
@@ -258,10 +258,13 @@ local scheme = {
 	['@keyword.operator.lua']  = { fg = colors.blue }, -- and, or, not
 	['@attribute.lua']         = { fg = colors.blue1 }, -- <const>, <close>
 
-	-- Go: packages with types, builtins teal, keywords blue
+	-- Go: field names cyan, type names teal (not the same hue)
 	['@module.go']             = { fg = colors.blue1 },
 	['@function.builtin.go']   = { fg = colors.blue1 }, -- make, append, len
-	['@type.builtin.go']       = { fg = colors.blue1 }, -- int, string, error
+	['@type.go']               = { fg = colors.teal },
+	['@type.builtin.go']       = { fg = colors.teal }, -- int, string, error
+	['@variable.member.go']    = { fg = colors.cyan },
+	['@property.go']           = { fg = colors.cyan },
 	['@keyword.type.go']       = { fg = colors.blue }, -- type, struct, interface
 	['@keyword.coroutine.go']  = { fg = colors.blue }, -- go
 	['@constant.builtin.go']   = { fg = colors.blue }, -- nil, iota
@@ -275,7 +278,7 @@ local scheme = {
 	['@keyword.type.c']        = { fg = colors.blue }, -- struct, enum, union
 	['@constant.macro.c']      = { fg = colors.purple },
 	['@function.macro.c']      = { fg = colors.purple },
-	['@type.definition.c']     = { fg = colors.blue1 },
+	['@type.definition.c']     = { fg = colors.teal },
 	['@character.c']           = { fg = colors.orange },
 
 	-- LSP semantic tokens (gopls / clangd / lua_ls)
