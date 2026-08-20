@@ -62,14 +62,30 @@ local scheme = {
 	Comment           = { fg = colors.comment },
 	Constant          = { fg = colors.constant },
 	String            = { fg = colors.string },
+	Character         = { fg = colors.string },
+	Number            = { fg = colors.constant },
+	Boolean           = { fg = colors.blue },
+	Float             = { fg = colors.constant },
 	Identifier        = { fg = colors.identifier },
 	Function          = { fg = colors.purple },
 	Statement         = { fg = colors.blue },
+	Conditional       = { fg = colors.blue },
+	Repeat            = { fg = colors.blue },
+	Label             = { fg = colors.identifier },
 	Keyword           = { fg = colors.blue },
+	Exception         = { fg = colors.blue },
 	Operator          = { fg = colors.operator },
+	PreProc           = { fg = colors.purple },
+	Include           = { fg = colors.purple },
+	Define            = { fg = colors.purple },
+	Macro             = { fg = colors.purple },
 	Type              = { fg = colors.type },
+	StorageClass      = { fg = colors.blue },
+	Structure         = { fg = colors.type },
+	Typedef           = { fg = colors.type },
 	Special           = { fg = colors.yellow },
-	Delimiter         = { fg = colors.operator },
+	SpecialChar       = { fg = colors.operator },
+	Delimiter         = { fg = colors.fg_alt },
 
 	-- Search
 	Search            = { fg = colors.bg, bg = colors.operator },
@@ -82,6 +98,7 @@ local scheme = {
 
 	-- Diagnostics (LSP)
 	DiagnosticError   = { fg = colors.error },
+	DiagnosticUnderlineError = { sp = colors.error, undercurl = true },
 	DiagnosticWarn    = { fg = colors.warning },
 	DiagnosticInfo    = { fg = colors.info },
 	DiagnosticHint    = { fg = colors.hint },
@@ -91,70 +108,169 @@ local scheme = {
 	LspReferenceWrite = { bg = colors.selection },
 	LspCodeLens       = { fg = colors.comment, italic = true },
 
-
 	-- Spell Checking
 	SpellBad                   = { fg = colors.string, undercurl = true, sp = colors.spell_bad },
 	SpellCap                   = { undercurl = true, sp = colors.warning },
 	SpellLocal                 = { undercurl = true, sp = colors.info },
 	SpellRare                  = { undercurl = true, sp = colors.purple },
 
-	-- Statusline specials
-	User1                      = { bg = '#6AC935', fg = 'black' },
-	User2                      = { bg = '#8F0000', fg = 'white' },
+	-- Git Signs
+	GitSignsAdd                = { fg = colors.constant },
+	GitSignsChange             = { fg = colors.operator },
+	GitSignsDelete             = { fg = colors.error },
 
 	-----------------------------------------------------------------------------
-	-- Tree-sitter (Comprehensive)
+	-- Tree-sitter
 	-----------------------------------------------------------------------------
-	['@annotation']            = { fg = colors.blue },
-	['@attribute']             = { fg = colors.string },
-	['@boolean']               = { fg = colors.blue },
-	['@character']             = { fg = colors.string },
+	-- Comments & Documentation
 	['@comment']               = { fg = colors.comment },
-	['@conditional']           = { fg = colors.purple },
-	['@constant']              = { fg = colors.identifier },
-	['@constant.builtin']      = { fg = colors.identifier },
-	['@constant.macro']        = { fg = colors.identifier },
-	['@constructor']           = { fg = colors.constant },
-	['@error']                 = { fg = colors.error },
-	['@exception']             = { fg = colors.purple },
-	['@field']                 = { fg = colors.fg },
-	['@float']                 = { fg = colors.fg_alt },
-	['@function']              = { fg = colors.purple },
-	['@function.builtin']      = { fg = colors.purple },
-	['@function.macro']        = { fg = colors.purple },
-	['@include']               = { fg = colors.identifier },
-	['@keyword']               = { fg = colors.blue },
-	['@keyword.function']      = { fg = colors.yellow },
-	['@label']                 = { fg = colors.identifier },
-	['@method']                = { fg = colors.purple },
-	['@namespace']             = { fg = colors.identifier },
+	['@comment.documentation'] = { fg = colors.comment },
+
+	-- Constants & Literals
+	['@constant']              = { fg = colors.constant },
+	['@constant.builtin']      = { fg = colors.blue },
+	['@constant.macro']        = { fg = colors.purple },
+	['@boolean']               = { fg = colors.blue },
 	['@number']                = { fg = colors.constant },
-	['@operator']              = { fg = colors.operator },
+	['@float']                 = { fg = colors.constant },
+	['@number.float']          = { fg = colors.constant },
+	['@character']             = { fg = colors.string },
+
+	-- Strings
+	['@string']                = { fg = colors.string },
+	['@string.escape']         = { fg = colors.operator },
+	['@string.regex']          = { fg = colors.operator },
+	['@string.regexp']         = { fg = colors.operator },
+
+	-- Functions & Methods
+	['@function']              = { fg = colors.purple },
+	['@function.builtin']      = { fg = colors.type },
+	['@function.call']         = { fg = colors.purple },
+	['@function.macro']        = { fg = colors.purple },
+	['@function.method']       = { fg = colors.purple },
+	['@function.method.call']  = { fg = colors.purple },
+	['@method']                = { fg = colors.purple },
+	['@constructor']           = { fg = colors.type },
+
+	-- Variables & Parameters
+	['@variable']              = { fg = colors.identifier },
+	['@variable.builtin']      = { fg = colors.blue },
+	['@variable.parameter']    = { fg = colors.identifier },
+	['@variable.parameter.builtin'] = { fg = colors.identifier },
+	['@variable.member']       = { fg = colors.identifier },
 	['@parameter']             = { fg = colors.identifier },
 	['@parameter.reference']   = { fg = colors.identifier },
-	['@property']              = { fg = colors.identifier }, -- Corrected from #fCDCFE
-	['@punctuation.bracket']   = { fg = colors.operator },
-	['@punctuation.delimiter'] = { fg = colors.operator },
-	['@punctuation.special']   = { fg = colors.operator },
+
+	-- Types & Keywords
+	['@type']                  = { fg = colors.type },
+	['@type.builtin']          = { fg = colors.type },
+	['@type.definition']       = { fg = colors.type },
+	['@keyword']               = { fg = colors.blue },
+	['@keyword.function']      = { fg = colors.blue },
+	['@keyword.return']        = { fg = colors.blue },
+	['@keyword.conditional']   = { fg = colors.blue },
+	['@keyword.conditional.ternary'] = { fg = colors.blue },
+	['@keyword.repeat']        = { fg = colors.blue },
+	['@keyword.exception']     = { fg = colors.blue },
+	['@keyword.import']        = { fg = colors.blue },
+	['@keyword.coroutine']     = { fg = colors.blue },
+	['@keyword.type']          = { fg = colors.blue },
+	['@keyword.operator']      = { fg = colors.blue },
+	['@keyword.modifier']      = { fg = colors.blue },
+	['@keyword.directive']     = { fg = colors.purple },
+	['@keyword.directive.define'] = { fg = colors.purple },
+	['@conditional']           = { fg = colors.blue },
 	['@repeat']                = { fg = colors.blue },
-	['@string']                = { fg = colors.string },
-	['@string.escape']         = { fg = colors.string },
-	['@string.regex']          = { fg = colors.string },
-	['@symbol']                = { fg = colors.constant },
+	['@exception']             = { fg = colors.blue },
+	['@include']               = { fg = colors.blue },
+
+	-- Structure & Organization
+	['@namespace']             = { fg = colors.type },
+	['@module']                = { fg = colors.type },
+	['@module.builtin']        = { fg = colors.type },
+	['@field']                 = { fg = colors.identifier },
+	['@property']              = { fg = colors.identifier },
+	['@attribute']             = { fg = colors.type },
+	['@annotation']            = { fg = colors.blue },
+	['@label']                 = { fg = colors.identifier },
+
+	-- Punctuation & Operators
+	['@operator']              = { fg = colors.operator },
+	['@punctuation.bracket']   = { fg = colors.fg_alt },
+	['@punctuation.delimiter'] = { fg = colors.fg_alt },
+	['@punctuation.special']   = { fg = colors.operator },
+
+	-- Tags & Markup
 	['@tag']                   = { fg = colors.blue },
-	['@tag.delimiter']         = { fg = colors.operator },
+	['@tag.delimiter']         = { fg = colors.fg_alt },
+	['@symbol']                = { fg = colors.constant },
 	['@text']                  = { fg = colors.fg },
-	-- Text & Markup
 	['@text.title']            = { fg = colors.blue, bold = true },
 	['@text.strong']           = { bold = true },
 	['@text.emphasis']         = { italic = true },
 	['@text.literal']          = { bg = colors.bg_alt },
 	['@text.uri']              = { fg = colors.blue, underline = true },
-	-- End Text & Markup
-	['@type']                  = { fg = colors.type },
-	['@type.builtin']          = { fg = colors.type },
-	['@variable']              = { fg = colors.identifier },
-	['@variable.builtin']      = { fg = colors.identifier },
+	['@markup.heading']        = { fg = colors.blue, bold = true },
+	['@markup.strong']         = { bold = true },
+	['@markup.italic']         = { italic = true },
+	['@markup.raw']            = { fg = colors.string },
+	['@markup.link.url']       = { fg = colors.blue, underline = true },
+	['@error']                 = { fg = colors.error },
+
+	-----------------------------------------------------------------------------
+	-- Language-Specific Overrides
+	-----------------------------------------------------------------------------
+	-- Lua: stdlib vs user code; table braces stay punctuation, not constructors
+	['@variable.builtin.lua']  = { fg = colors.blue }, -- self
+	['@module.builtin.lua']    = { fg = colors.type }, -- _G, io, math, string
+	['@function.builtin.lua']  = { fg = colors.type }, -- print, ipairs, require
+	['@constructor.lua']       = { fg = colors.fg_alt }, -- { }
+	['@keyword.operator.lua']  = { fg = colors.blue }, -- and, or, not
+	['@attribute.lua']         = { fg = colors.type }, -- <const>, <close>
+
+	-- Go: packages, builtins, composite-type keywords
+	['@module.go']             = { fg = colors.type },
+	['@function.builtin.go']   = { fg = colors.type }, -- make, append, len
+	['@type.builtin.go']       = { fg = colors.type }, -- int, string, error
+	['@keyword.type.go']       = { fg = colors.blue }, -- type, struct, interface
+	['@keyword.coroutine.go']  = { fg = colors.blue }, -- go
+	['@constant.builtin.go']   = { fg = colors.blue }, -- nil, iota
+
+	-- C: preprocessor and storage distinct from types
+	['@keyword.directive.c']   = { fg = colors.purple },
+	['@keyword.directive.define.c'] = { fg = colors.purple },
+	['@keyword.import.c']      = { fg = colors.purple }, -- #include
+	['@keyword.modifier.c']    = { fg = colors.blue }, -- static, const, extern
+	['@keyword.operator.c']    = { fg = colors.blue }, -- sizeof
+	['@keyword.type.c']        = { fg = colors.blue }, -- struct, enum, union
+	['@constant.macro.c']      = { fg = colors.purple },
+	['@function.macro.c']      = { fg = colors.purple },
+	['@type.definition.c']     = { fg = colors.type },
+	['@character.c']           = { fg = colors.string },
+
+	-- LSP semantic tokens (gopls / clangd / lua_ls)
+	['@lsp.type.namespace']    = { link = '@module' },
+	['@lsp.type.type']         = { link = '@type' },
+	['@lsp.type.class']        = { link = '@type' },
+	['@lsp.type.enum']         = { link = '@type' },
+	['@lsp.type.interface']    = { link = '@type' },
+	['@lsp.type.struct']       = { link = '@type' },
+	['@lsp.type.parameter']    = { link = '@variable.parameter' },
+	['@lsp.type.variable']     = { link = '@variable' },
+	['@lsp.type.property']     = { link = '@property' },
+	['@lsp.type.enumMember']   = { link = '@constant' },
+	['@lsp.type.function']     = { link = '@function' },
+	['@lsp.type.method']       = { link = '@function.method' },
+	['@lsp.type.macro']        = { link = '@function.macro' },
+	['@lsp.type.decorator']    = { link = '@attribute' },
+	['@lsp.type.keyword']      = { link = '@keyword' },
+	['@lsp.typemod.variable.readonly'] = { link = '@constant' },
+	['@lsp.typemod.variable.defaultLibrary'] = { link = '@module.builtin' },
+	['@lsp.typemod.function.defaultLibrary'] = { link = '@function.builtin' },
+
+	-- Statusline specials
+	User1                      = { bg = '#6AC935', fg = 'black' },
+	User2                      = { bg = '#8F0000', fg = 'white' },
 }
 
 return scheme
