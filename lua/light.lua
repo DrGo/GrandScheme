@@ -1,7 +1,7 @@
 -- light.lua: Grok Day colorscheme for grandscheme
--- Swatches from GrokDay (xai-org/grok-build). Token roles match dark:
---   keywords blue, functions magenta, variables cyan, types teal,
---   strings orange, operators gold, numbers green.
+-- Swatches from GrokDay. Hues are spread so Go/C/Lua are not all cool:
+--   keywords blue, functions magenta, variables indigo, types orange,
+--   strings green, operators gold, numbers purple, packages teal.
 
 -- Grok Day palette
 local colors = {
@@ -94,18 +94,18 @@ local scheme = {
 	-- Legacy Syntax Highlighting
 	-----------------------------------------------------------------------------
 	Comment                    = { fg = colors.comment, italic = true },
-	Constant                   = { fg = colors.green },
-	String                     = { fg = colors.orange },
-	Character                  = { fg = colors.orange },
-	Number                     = { fg = colors.green },
+	Constant                   = { fg = colors.purple },
+	String                     = { fg = colors.green },
+	Character                  = { fg = colors.green },
+	Number                     = { fg = colors.purple },
 	Boolean                    = { fg = colors.blue },
-	Float                      = { fg = colors.green },
-	Identifier                 = { fg = colors.cyan },
+	Float                      = { fg = colors.purple },
+	Identifier                 = { fg = colors.blue0 },
 	Function                   = { fg = colors.magenta },
 	Statement                  = { fg = colors.blue },
 	Conditional                = { fg = colors.blue },
 	Repeat                     = { fg = colors.blue },
-	Label                      = { fg = colors.cyan },
+	Label                      = { fg = colors.blue0 },
 	Keyword                    = { fg = colors.blue },
 	Exception                  = { fg = colors.blue },
 	Operator                   = { fg = colors.operator },
@@ -113,10 +113,10 @@ local scheme = {
 	Include                    = { fg = colors.purple },
 	Define                     = { fg = colors.purple },
 	Macro                      = { fg = colors.purple },
-	Type                       = { fg = colors.teal },
+	Type                       = { fg = colors.orange },
 	StorageClass               = { fg = colors.purple },
-	Structure                  = { fg = colors.teal },
-	Typedef                    = { fg = colors.teal },
+	Structure                  = { fg = colors.orange },
+	Typedef                    = { fg = colors.orange },
 	Special                    = { fg = colors.yellow },
 	SpecialChar                = { fg = colors.operator },
 	Delimiter                  = { fg = colors.fg_alt },
@@ -157,40 +157,40 @@ local scheme = {
 	['@comment.documentation'] = { fg = colors.comment_doc, italic = true },
 
 	-- Constants & Literals
-	['@constant']              = { fg = colors.green },
+	['@constant']              = { fg = colors.purple },
 	['@constant.builtin']      = { fg = colors.blue },
 	['@constant.macro']        = { fg = colors.purple },
 	['@boolean']               = { fg = colors.blue },
-	['@number']                = { fg = colors.green },
-	['@float']                 = { fg = colors.green },
-	['@character']             = { fg = colors.orange },
+	['@number']                = { fg = colors.purple },
+	['@float']                 = { fg = colors.purple },
+	['@character']             = { fg = colors.green },
 
 	-- Strings
-	['@string']                = { fg = colors.orange },
+	['@string']                = { fg = colors.green },
 	['@string.escape']         = { fg = colors.operator },
 	['@string.regex']          = { fg = colors.operator },
 	['@string.regexp']         = { fg = colors.operator },
 
 	-- Functions & Methods
 	['@function']              = { fg = colors.magenta },
-	['@function.builtin']      = { fg = colors.blue1 },
+	['@function.builtin']      = { fg = colors.teal },
 	['@function.call']         = { fg = colors.magenta },
 	['@function.macro']        = { fg = colors.purple },
 	['@function.method']       = { fg = colors.magenta },
 	['@function.method.call']  = { fg = colors.magenta },
-	['@constructor']           = { fg = colors.blue1 },
+	['@constructor']           = { fg = colors.orange },
 
 	-- Variables & Parameters
-	['@variable']              = { fg = colors.cyan },
-	['@variable.builtin']      = { fg = colors.blue },
-	['@variable.parameter']    = { fg = colors.cyan },
-	['@variable.parameter.builtin'] = { fg = colors.cyan },
-	['@variable.member']       = { fg = colors.cyan },
+	['@variable']              = { fg = colors.blue0 },
+	['@variable.builtin']      = { fg = colors.red },
+	['@variable.parameter']    = { fg = colors.blue0 },
+	['@variable.parameter.builtin'] = { fg = colors.blue0 },
+	['@variable.member']       = { fg = colors.blue0 },
 
 	-- Types & Keywords
-	['@type']                  = { fg = colors.teal },
-	['@type.builtin']          = { fg = colors.teal },
-	['@type.definition']       = { fg = colors.teal },
+	['@type']                  = { fg = colors.orange },
+	['@type.builtin']          = { fg = colors.orange },
+	['@type.definition']       = { fg = colors.orange },
 	['@keyword']               = { fg = colors.blue },
 	['@keyword.function']      = { fg = colors.blue },
 	['@keyword.return']        = { fg = colors.blue },
@@ -211,14 +211,14 @@ local scheme = {
 	['@include']               = { fg = colors.blue },
 
 	-- Structure & Organization
-	['@namespace']             = { fg = colors.blue1 },
-	['@module']                = { fg = colors.blue1 },
-	['@module.builtin']        = { fg = colors.blue1 },
-	['@field']                 = { fg = colors.cyan },
-	['@property']              = { fg = colors.cyan },
-	['@attribute']             = { fg = colors.blue1 },
-	['@annotation']            = { fg = colors.blue },
-	['@label']                 = { fg = colors.cyan },
+	['@namespace']             = { fg = colors.teal },
+	['@module']                = { fg = colors.teal },
+	['@module.builtin']        = { fg = colors.teal },
+	['@field']                 = { fg = colors.blue0 },
+	['@property']              = { fg = colors.blue0 },
+	['@attribute']             = { fg = colors.purple },
+	['@annotation']            = { fg = colors.purple },
+	['@label']                 = { fg = colors.blue0 },
 
 	-- Punctuation & Operators
 	['@operator']              = { fg = colors.operator },
@@ -229,19 +229,19 @@ local scheme = {
 	-- Tags & Markup
 	['@tag']                   = { fg = colors.red },
 	['@tag.delimiter']         = { fg = colors.dark5 },
-	['@symbol']                = { fg = colors.green },
+	['@symbol']                = { fg = colors.purple },
 
 	-- Text & Markup (Markdown, etc.)
 	['@text']                  = { fg = colors.fg },
 	['@text.title']            = { fg = colors.blue, bold = true },
 	['@text.strong']           = { bold = true },
 	['@text.emphasis']         = { italic = true },
-	['@text.literal']          = { fg = colors.orange },
+	['@text.literal']          = { fg = colors.green },
 	['@text.uri']              = { fg = colors.blue, underline = true },
 	['@markup.heading']        = { fg = colors.blue, bold = true },
 	['@markup.strong']         = { bold = true },
 	['@markup.italic']         = { italic = true },
-	['@markup.raw']            = { fg = colors.orange },
+	['@markup.raw']            = { fg = colors.green },
 	['@markup.link.url']       = { fg = colors.blue, underline = true },
 
 	-- Error Handling
@@ -251,20 +251,20 @@ local scheme = {
 	-- Language-Specific Overrides
 	-----------------------------------------------------------------------------
 	-- Lua: stdlib vs user code; table braces stay punctuation, not constructors
-	['@variable.builtin.lua']  = { fg = colors.blue }, -- self
-	['@module.builtin.lua']    = { fg = colors.blue1 }, -- _G, io, math, string
-	['@function.builtin.lua']  = { fg = colors.blue1 }, -- print, ipairs, require
+	['@variable.builtin.lua']  = { fg = colors.red }, -- self
+	['@module.builtin.lua']    = { fg = colors.teal }, -- _G, io, math, string
+	['@function.builtin.lua']  = { fg = colors.teal }, -- print, ipairs, require
 	['@constructor.lua']       = { fg = colors.fg_alt }, -- { }
 	['@keyword.operator.lua']  = { fg = colors.blue }, -- and, or, not
-	['@attribute.lua']         = { fg = colors.blue1 }, -- <const>, <close>
+	['@attribute.lua']         = { fg = colors.purple }, -- <const>, <close>
 
-	-- Go: field names cyan, type names teal (not the same hue)
-	['@module.go']             = { fg = colors.blue1 },
-	['@function.builtin.go']   = { fg = colors.blue1 }, -- make, append, len
-	['@type.go']               = { fg = colors.teal },
-	['@type.builtin.go']       = { fg = colors.teal }, -- int, string, error
-	['@variable.member.go']    = { fg = colors.cyan },
-	['@property.go']           = { fg = colors.cyan },
+	-- Go: indigo fields, orange types, teal packages
+	['@module.go']             = { fg = colors.teal },
+	['@function.builtin.go']   = { fg = colors.teal }, -- make, append, len
+	['@type.go']               = { fg = colors.orange },
+	['@type.builtin.go']       = { fg = colors.orange }, -- int, string, error
+	['@variable.member.go']    = { fg = colors.blue0 },
+	['@property.go']           = { fg = colors.blue0 },
 	['@keyword.type.go']       = { fg = colors.blue }, -- type, struct, interface
 	['@keyword.coroutine.go']  = { fg = colors.blue }, -- go
 	['@constant.builtin.go']   = { fg = colors.blue }, -- nil, iota
@@ -278,8 +278,8 @@ local scheme = {
 	['@keyword.type.c']        = { fg = colors.blue }, -- struct, enum, union
 	['@constant.macro.c']      = { fg = colors.purple },
 	['@function.macro.c']      = { fg = colors.purple },
-	['@type.definition.c']     = { fg = colors.teal },
-	['@character.c']           = { fg = colors.orange },
+	['@type.definition.c']     = { fg = colors.orange },
+	['@character.c']           = { fg = colors.green },
 
 	-- LSP semantic tokens (gopls / clangd / lua_ls)
 	['@lsp.type.namespace']    = { link = '@module' },
