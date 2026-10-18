@@ -18,13 +18,13 @@ local colors = {
 
 	-- Accents (deepened TokyoNight family)
 	blue           = '#2F64D2',
-	blue0          = '#28448A',
+	blue0          = '#3654B5',
 	blue1          = '#0F87A2',
 	cyan           = '#0082AA',
 	green          = '#378E23',
 	green1         = '#0C947C',
 	magenta        = '#7D4BC6',
-	purple         = '#6C3EB2',
+	purple         = '#7839BA',
 	orange         = '#C3691E',
 	yellow         = '#A27612',
 	teal           = '#0A8E70',
@@ -32,7 +32,7 @@ local colors = {
 	red1           = '#AF2323',
 
 	-- Operators (warm, like dark gold)
-	operator       = '#A27612',
+	operator       = '#9E6700',
 	punctuation    = '#4A72B0',
 
 	-- UI surfaces
