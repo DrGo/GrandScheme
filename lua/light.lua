@@ -94,12 +94,12 @@ local scheme = {
 	-- Legacy Syntax Highlighting
 	-----------------------------------------------------------------------------
 	Comment                    = { fg = colors.comment, italic = true },
-	Constant                   = { fg = colors.purple },
+	Constant                   = { fg = colors.cyan },
 	String                     = { fg = colors.green },
 	Character                  = { fg = colors.green },
-	Number                     = { fg = colors.purple },
+	Number                     = { fg = colors.cyan },
 	Boolean                    = { fg = colors.blue },
-	Float                      = { fg = colors.purple },
+	Float                      = { fg = colors.cyan },
 	Identifier                 = { fg = colors.blue0 },
 	Function                   = { fg = colors.magenta },
 	Statement                  = { fg = colors.blue },
@@ -157,12 +157,12 @@ local scheme = {
 	['@comment.documentation'] = { fg = colors.comment_doc, italic = true },
 
 	-- Constants & Literals
-	['@constant']              = { fg = colors.purple },
+	['@constant']              = { fg = colors.cyan },
 	['@constant.builtin']      = { fg = colors.blue },
-	['@constant.macro']        = { fg = colors.purple },
+	['@constant.macro']        = { fg = colors.cyan },
 	['@boolean']               = { fg = colors.blue },
-	['@number']                = { fg = colors.purple },
-	['@float']                 = { fg = colors.purple },
+	['@number']                = { fg = colors.cyan },
+	['@float']                 = { fg = colors.cyan },
 	['@character']             = { fg = colors.green },
 
 	-- Strings
