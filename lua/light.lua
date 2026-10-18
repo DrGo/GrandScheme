@@ -18,7 +18,7 @@ local colors = {
 
 	-- Accents (deepened TokyoNight family)
 	blue           = '#2F64D2',
-	blue0          = '#3654B5',
+	blue0          = '#28448A',
 	blue1          = '#0F87A2',
 	cyan           = '#0082AA',
 	green          = '#378E23',
